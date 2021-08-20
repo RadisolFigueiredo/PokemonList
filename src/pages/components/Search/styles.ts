@@ -13,14 +13,19 @@ export const Box = styled.div`
   width: 100%;
 `;
 
-export const BoxTitle = styled.div`
+export const BoxImage = styled.div`
   display: flex;
   align-content: center;
   height: 100%;
   padding: 0 30px;
   width: 70%;
   margin: auto 0;
+`;
 
+export const Image = styled.img`
+  width: 200px;
+  height: 80px;
+  cursor: pointer;
 `;
   
 export const Title = styled.h1`

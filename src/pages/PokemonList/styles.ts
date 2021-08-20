@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from 'react-router-dom';
 
 export const Container = styled.div`
   display: flex;
@@ -16,4 +17,11 @@ export const BoxCards = styled.div`
   flex-wrap: wrap;
   justify-content: space-around;
   flex-direction: row;
+`;
+
+export const StyledLink = styled(Link)`
+  text-decoration: none;
+  &:focus, &:hover, &:visited, &:link, &:active {
+    text-decoration: none;
+  }
 `;

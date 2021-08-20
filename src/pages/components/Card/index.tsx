@@ -6,12 +6,14 @@ interface DataProps {
   id: number;
   name: string;
   image: string;
-  pokemonType: string
+  pokemonType?: string;
+  onClick?: any;
+  type: string;
 }
 
-const Card: React.FC<DataProps> = ({id, image, name, pokemonType}) => {
+const Card: React.FC<DataProps> = ({id, image, name, pokemonType, onClick, type}) => {
   return (
-    <S.Cards>
+    <S.Cards onClick={onClick} type={type}>
       <S.BoxTextId>
         <S.TextId># {id}</S.TextId>
       </S.BoxTextId>

@@ -1,12 +1,19 @@
-import React from 'react';
-import PokemonList from './PokemonList';
+import React from "react";
+import { BrowserRouter } from "react-router-dom";
+import GlobalContext from "./AppContext/Provider";
 
-function App() {
+import Routes from "./routes";
+
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <PokemonList />
-    </div>
+    <GlobalContext>
+      <BrowserRouter>
+        <div className="App">
+          <Routes />
+        </div>
+      </BrowserRouter>
+    </GlobalContext>
   );
-}
+};
 
 export default App;
