@@ -11,8 +11,7 @@ import Search from "../components/Search";
 import * as S from "./styles";
 
 const PokemonList: React.FC = () => {
-  const { setPokemonData, setPokemonEvolutionData } =
-    useContext<any>(PokemonContext);
+  const { setPokemonEvolutionData, pokemonEvolutionData } = useContext<any>(PokemonContext);
   const history = useHistory();
   const [data, setData] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
@@ -51,7 +50,6 @@ const PokemonList: React.FC = () => {
           ""
         );
       const responseChainEvolution = await api.get(replaceUrl);
-      console.log(responseChainEvolution);
       setPokemonEvolutionData(responseChainEvolution.data);
       setLoading(false);
     } catch (err) {
@@ -59,20 +57,20 @@ const PokemonList: React.FC = () => {
     }
   };
 
-  const handleClick = (id: number, data: any) => {
+  const handleClick = (id: number) => {
     getPokemonEvolution(id);
     history.push(`/evolution-chain/${id}`);
-    setPokemonData(data.data);
   };
 
   useEffect(() => {
     getAllPokemons();
-  }, []);
+  }, [pokemonEvolutionData]);
 
   return (
     <>
       <Search
         showSearch={true}
+        showBackButton={false}
         onChange={(event: any) => {
           setTextInput(event.target.value);
         }}
@@ -97,7 +95,7 @@ const PokemonList: React.FC = () => {
                 })
                 .map((item, index) => (
                   <Card
-                    onClick={() => handleClick(item.data.id, item)}
+                    onClick={() => handleClick(item.data.id)}
                     type={item.data.types[0].type.name}
                     key={index}
                     id={item.data.id}

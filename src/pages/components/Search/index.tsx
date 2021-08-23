@@ -6,9 +6,10 @@ import * as S from "./styles";
 interface DataProps {
   onChange?: any;
   showSearch?: boolean;
+  showBackButton: boolean;
 }
 
-const Search: React.FC<DataProps> = ({ onChange, showSearch }) => {
+const Search: React.FC<DataProps> = ({ onChange, showSearch , showBackButton}) => {
   return (
     <S.Container>
       <S.Box>
@@ -17,6 +18,11 @@ const Search: React.FC<DataProps> = ({ onChange, showSearch }) => {
             <S.Image src={logo} />
           </Link>
         </S.BoxImage>
+        {showBackButton && (
+          <S.BackButton to="/">
+            <p>Voltar</p>
+          </S.BackButton>
+        )}
         {showSearch && (
           <S.BoxSearch>
             <S.Search

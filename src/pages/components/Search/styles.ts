@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from "styled-components";
 
 export const Container = styled.div`
@@ -44,4 +45,8 @@ export const Search = styled.input`
   height: 30px;
   font-size: 16px;
   margin-right: 30px;
+`;
+
+export const BackButton = styled(Link)`
+  margin: auto 0;
 `;
