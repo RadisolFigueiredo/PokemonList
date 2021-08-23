@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+
 import logo from "../../../assets/logo.png";
 import * as S from "./styles";
 
@@ -7,19 +7,27 @@ interface DataProps {
   onChange?: any;
   showSearch?: boolean;
   showBackButton: boolean;
+  onClick?: Function;
 }
 
-const Search: React.FC<DataProps> = ({ onChange, showSearch , showBackButton}) => {
+const Search: React.FC<DataProps> = ({
+  onChange,
+  showSearch,
+  showBackButton,
+  onClick,
+}) => {
+  const goBack = () => (window.history.back());
+
   return (
     <S.Container>
       <S.Box>
         <S.BoxImage>
-          <Link to="/">
+          <div onClick={() => goBack()}>
             <S.Image src={logo} />
-          </Link>
+          </div>
         </S.BoxImage>
         {showBackButton && (
-          <S.BackButton to="/">
+          <S.BackButton onClick={() => goBack()}>
             <p>Voltar</p>
           </S.BackButton>
         )}

@@ -47,6 +47,7 @@ export const Search = styled.input`
   margin-right: 30px;
 `;
 
-export const BackButton = styled(Link)`
+export const BackButton = styled.div`
   margin: auto 0;
+  cursor: pointer;
 `;

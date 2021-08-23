@@ -14,7 +14,7 @@ const PokemonList: React.FC = () => {
   const { setPokemonEvolutionData, pokemonEvolutionData } = useContext<any>(PokemonContext);
   const history = useHistory();
   const [data, setData] = useState<any[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState<boolean>(true);
   const [textInput, setTextInput] = useState("");
 
   const getAllPokemons = async () => {
